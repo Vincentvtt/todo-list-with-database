@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose
   .connect(
-    "mongodb://127.0.0.1:27017/todolistDB?directConnection=true&serverSelectionTimeoutMS=2000",
+    "mongodb+srv://admin:admin@cluster0.4mdyc.mongodb.net/todolistDB",
     { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
   )
   .then(() => {
@@ -112,6 +112,6 @@ app.get("/about", function (req, res) {
   res.render("about");
 });
 
-app.listen(3000, function () {
+app.listen(process.env.PORT ||| 3000, function () {
   console.log("Server started on port 3000");
 });
